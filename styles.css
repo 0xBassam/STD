@@ -730,7 +730,7 @@ ul { list-style: none; }
   color: rgba(255, 255, 255, 0.5);
 }
 
-.footer-arabic {
+.footer-sub {
   color: rgba(255, 255, 255, 0.35);
   font-size: var(--font-size-xs);
 }
@@ -748,6 +748,69 @@ ul { list-style: none; }
 }
 
 .footer-links a:hover { color: var(--color-white); }
+
+/* ── Industries ────────────────────────────────────────────── */
+.industries-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.industry-card {
+  background: var(--color-white);
+  border: 1px solid #D1D9E6;
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.industry-card:hover {
+  border-color: var(--color-blue);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.industry-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(21, 101, 192, 0.08);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blue);
+  margin: 0 auto var(--space-4);
+  border: 1px solid rgba(21, 101, 192, 0.15);
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+
+.industry-card:hover .industry-icon {
+  background: rgba(21, 101, 192, 0.14);
+  border-color: rgba(21, 101, 192, 0.3);
+}
+
+.industry-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: var(--space-3);
+}
+
+.industry-card p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* ── Services 5-col override ───────────────────────────────── */
+.services-grid--5 {
+  grid-template-columns: 1fr;
+}
 
 /* ── Reduced Motion ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
@@ -768,9 +831,11 @@ ul { list-style: none; }
 
   .hero-content h1 { font-size: var(--font-size-5xl); }
 
-  .services-grid    { grid-template-columns: repeat(2, 1fr); }
-  .why-grid         { grid-template-columns: repeat(2, 1fr); }
-  .frameworks-grid  { grid-template-columns: repeat(3, 1fr); }
+  .services-grid              { grid-template-columns: repeat(2, 1fr); }
+  .services-grid--5           { grid-template-columns: repeat(2, 1fr); }
+  .why-grid                   { grid-template-columns: repeat(2, 1fr); }
+  .frameworks-grid            { grid-template-columns: repeat(3, 1fr); }
+  .industries-grid            { grid-template-columns: repeat(2, 1fr); }
 
   .footer-inner {
     flex-direction: row;
@@ -792,6 +857,14 @@ ul { list-style: none; }
 
   .hero-tagline { max-width: 520px; }
 
-  .services-grid { grid-template-columns: repeat(4, 1fr); }
-  .why-grid      { grid-template-columns: repeat(3, 1fr); }
+  .services-grid     { grid-template-columns: repeat(4, 1fr); }
+  .services-grid--5  { grid-template-columns: repeat(3, 1fr); }
+  .why-grid          { grid-template-columns: repeat(3, 1fr); }
+  .industries-grid   { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── Responsive: xl (1280px+) ──────────────────────────────── */
+@media (min-width: 1280px) {
+  .services-grid--5  { grid-template-columns: repeat(5, 1fr); }
+  .industries-grid   { grid-template-columns: repeat(6, 1fr); }
 }
